@@ -1,0 +1,22 @@
+{
+  "name": "calclash",
+  "version": "1.0.0",
+  "description": "calclash ========",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Shikkic/calclash.git"
+  },
+  "author": "Shikkic",
+  "license": "GNU",
+  "bugs": {
+    "url": "https://github.com/Shikkic/calclash/issues"
+  },
+  "homepage": "https://github.com/Shikkic/calclash",
+  "dependencies": {
+    "express": "^4.9.7"
+  }
+}
