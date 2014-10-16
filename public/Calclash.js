@@ -25,13 +25,12 @@ var showProblem = function() {
 var checkProblem = function() {
     if (parseInt($('#answer').val()) === currProblem.answer) {
         console.log('GOOD JOB');
-		$('p').effect("shake");
         $('#answer').val('');
         $('#answer').focus();
         return true;
     } else {
         console.log('YOU FUCKED UP');
-        $('p').effect
+        $('p').effect("shake");
         $('#answer').val('');
         $('#answer').focus();
         return false;
