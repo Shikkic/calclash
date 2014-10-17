@@ -30,7 +30,11 @@ var checkProblem = function() {
         return true;
     } else {
         console.log('YOU FUCKED UP');
-        $('p').effect("shake");
+        $('#problem').effect("shake");
+		$('#problem ').addClass('wrong');
+		setTimeout(function(){
+			$('#problem').removeClass('wrong');
+		}, 250);
         $('#answer').val('');
         $('#answer').focus();
         return false;
