@@ -41,6 +41,7 @@ var checkProblem = function() {
     }
 };
 
+
 $(function() {
     showProblem();
     $('button').click(function() {
@@ -49,22 +50,11 @@ $(function() {
         }
     });
     $('#answer').keypress(function (e) {
-      if ((e.which == 13)&&!($('#answer').val().length == 0)){
+      if (e.which == 13) {
           if (checkProblem()) {
                showProblem();
           }
           return false;    //<---- Add this line
       }
     });
-	
-	var i = 0;
-	setInterval(function(){
-		$('#first-background').css('marginLeft', i-- + 'px');
-		$('#second-background').css('marginLeft', i-- + 'px');
-		if((i*-1) >= (($(window).width()))){
-			i = 0;
-				
-		}
-	}, 15);
-	
 });
