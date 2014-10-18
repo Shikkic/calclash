@@ -42,12 +42,22 @@ var checkProblem = function() {
 };
 
 $(function() {
+	//This setInterval function will take an elemant 
+	var j = 60;
+	setInterval(function(){
+		$('timer').val(j	);
+		j--;
+	}, 1000);
+	
+	// This shows the problem and calls the check problem function
     showProblem();
     $('button').click(function() {
         if (checkProblem()) {
             showProblem();
         }
     });
+	
+	// This enables us to hit the enter button and submit input
     $('#answer').keypress(function (e) {
       if ((e.which == 13)&&!($('#answer').val().length == 0)){
           if (checkProblem()) {
@@ -57,6 +67,7 @@ $(function() {
       }
     });
 	
+	// This setInterval function moves moves the background's css position every 15ms, to give us the illusion of scrolling
 	var i = 0;
 	setInterval(function(){
 		$('#first-background').css('marginLeft', i-- + 'px');
