@@ -42,7 +42,22 @@ p,input,button{
 	color:red;
 }
 
-body{
-	background-image: url(http://www.desktopbackgrounds.me/wp-content/uploads/2013/12/8bit-Landscape.jpg);
+.background{
+	position: absolute;
+	width: 100%;
+	background-image: url(/randomBackground);
+	top: 0px;
+	bottom:0px;
 }
 
+body{
+	overflow: hidden;
+}
+
+#first-background{
+	left: 0px;
+}
+
+#second-background{
+	left: 100%;
+}
