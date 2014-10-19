@@ -4,13 +4,52 @@
 		<title>Calclash</title>
 		<link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
 		<link href='style.css' rel='stylesheet' type='text/css'>
+		<script src='https://cdn.firebase.com/js/client/1.1.1/firebase.js'></script>
 	</head>
 	
 	<body>
-		<center><div class="timer">60</div></center>
-		
+	
 		<div class="background" id="first-background"></div>
 		<div class="background" id="second-background"></div>
+		
+		<div id="player1">
+			<div id="player1-image"></div>
+				<div style="position: absolute; left: 150px; top: 12px; right: 12px;">
+					<div id="player1-text">
+						<p id="player1-name-style">
+							<span id="player1-name">Big D.</span>
+						</p>
+						
+						<p id="player1-problems-right-style">
+							Problems Right: <span id="player1-problems-right">0</span>
+						</p>
+						
+						<p id="player1-points-style">
+						POINTS: <span id="player1-points">0</span>
+						</p>
+					</div>	
+				</div>
+		</div>
+		
+		<div id="player2">
+			<div id="player2-image"></div>
+			<div style="position: absolute; left: 150px; top: 12px; right: 12px;">
+					<div id="player2-text">
+						<p id="player2-name-style">
+							<span id="player1-name">Little D.</span>
+						</p>
+						
+						<p id="player2-problems-right-style">
+							Problems Right: <span id="player2-problems-right">0</span>
+						</p>
+						
+						<p id="player2-points-style">
+						POINTS: <span id="player2-points">0</span>
+						</p>
+					</div>	
+				</div>
+			
+		</div>
 		
 		<div id="problem">
 			<p>
@@ -18,8 +57,17 @@
 			</p>
 		
 			<input class="input-group" type="text"  id="answer">
+			
 		</div>
 		
+		<div id="timer">60</div>
+		
+		<div id="overlay">
+			<div>
+				<p> WAITING FOR OPPONENT </p>
+			</div>
+		</div>
+
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 		<script src="Calclash.js"></script>
