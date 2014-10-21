@@ -1,14 +1,27 @@
 <!doctype html5>
 <html>
 	<head>
-		<link href='style.css' rel='stylesheet' type='text/css'>
+		<title>Calclash</title>
+		<link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+		<link href='style2.css' rel='stylesheet' type='text/css'>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	</head>
-	<body>		
+	
+	<body style="background-color:#777777;">		
+		<p id="title">Calclash</p>
 		
-		<p>hello</p>
-		<button onclick="location.href = '/play'">PLAY</button>
+		<input type="text" id="name" autofocus>
 		
-		<div class="background2"></div>	
+		<button id="play">PLAY</button>
+		
+		<script>
+			$(function() {
+				$('#play').click(function() {
+					window.location = '/play?name=' + $('#name').val();
+				});
+			});
+		</script>
+		
 	</body>
 	
 </html>

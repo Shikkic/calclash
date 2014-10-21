@@ -1,0 +1,40 @@
+#title{
+	font-family: 'Press Start 2p';
+	font-size: 120px;
+	color:#ffffff;
+	text-shadow: 6px 6px 0px rgba(0,0,0,5);
+	text-align: center;
+	bottom: 0px;
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top:0px;
+}
+
+#play{
+	padding: 15px;
+	font-size: 60px;
+	width: 500px;
+	position: absolute;
+	left:50%;
+	margin-left:-250px;
+	text-align: center;
+	top: 500px;
+	font-family: 'Press Start 2p';
+}
+
+#name{
+	padding: 15px;
+	font-size: 60px;
+	width: 500px;
+	position: absolute;
+	left:50%;
+	margin-left:-250px;
+	text-align: center;
+	top: 350px;
+	font-family: 'Press Start 2p';
+}
+
+body{
+	background-image: url('http://www.desktopbackgrounds.me/wp-content/uploads/2014/07/8bit-Cityscape.png');
+	}

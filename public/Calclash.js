@@ -2,9 +2,21 @@ var myDataRef = new Firebase('https://calclashme.firebaseio.com/');
 var gamesDataRef = myDataRef.child('games');
 var playerNum = -1;
 
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+var name = getParameterByName('name');
+if (!name || name.length <= 0) {
+	window.location = '/';
+}
+
 var problems = [],
-    upperBound = 15,
-    lowerBound = 5,
+    upperBound = 13,
+    lowerBound = 2,
     currProblem,
 	points = 0,
 	opponentPoints = 0;
@@ -49,13 +61,19 @@ var checkProblem = function() {
 
 var joinGame = function(gameSnapshot, cb){
 	gameSnapshot.ref().update({playerCount: 2}, function() {
-		gameSnapshot.ref().child('players').push({
-			name: 'SecondDoosh',
-			picture: 'http://i.imgur.com/X9JQVsX.jpg'
-		}, function(){
-			playerNum = 2;
-			gameSnapshot.ref().onDisconnect().remove();
-			cb();
+		gameSnapshot.ref().child('players').on('value', function(snapshot) {
+			gameSnapshot.ref().child('players').off('value');
+			var val = snapshot.val();
+			gameSnapshot.ref().child('players').push({
+				name: name,
+				picture: 'http://i.imgur.com/X9JQVsX.jpg'
+			}, function(){
+				playerNum = 2;
+				$('#player2-name').html(name);
+				$('#player1-name').html(val[0].name);
+				gameSnapshot.ref().onDisconnect().remove();
+				cb();
+			});
 		});
 	});
 };
@@ -65,7 +83,7 @@ var createGame = function(cb){
 	var gameRef = gamesDataRef.push({
 		playerCount: 1,
 		players: [{
-			name: 'FirstDoosh',
+			name: name,
 			picture:  'http://i.imgur.com/X9JQVsX.jpg' 
 		}],
 		playerScore1: 0,
@@ -74,6 +92,7 @@ var createGame = function(cb){
 	}, function(){
 		playerNum = 1;
 		gameRef.onDisconnect().remove();
+		$('#player1-name').html(name);
 		cb(gameRef);
 	});
 };
@@ -137,6 +156,7 @@ var bindJoinListener = function(gameRef){
 	gameRef.child('players').on('child_added',function(childSnapshot, previousChildName){
 		if(previousChildName){
 			console.log('child_added', childSnapshot.val());
+			$('#player2-name').html(childSnapshot.val().name);
 			gameRef.child('players').off();
 			$('#overlay').fadeOut();
 			startTimer(gameRef);
