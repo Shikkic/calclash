@@ -35,6 +35,20 @@
 	font-family: 'Press Start 2p';
 }
 
+#link{
+	padding: 15px;
+	font-size: 50px;
+	width: 500px;
+	position: absolute;
+	left:50%;
+	margin-left:-250px;
+	text-align: center;
+	top: 650px;
+	font-family: 'Press Start 2p';
+	color: #ffffff;
+	text-decoration: none;
+}
+	
 body{
-	background-image: url('http://www.desktopbackgrounds.me/wp-content/uploads/2014/07/8bit-Cityscape.png');
+	background-image: url('background/welcome.png');
 	}
